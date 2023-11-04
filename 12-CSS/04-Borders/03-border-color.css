@@ -1,0 +1,14 @@
+/*The border-color property is used to set the color of the four borders.
+
+The color can be set by:
+
+name - specify a color name, like "red"
+HEX - specify a HEX value, like "#ff0000"
+RGB - specify a RGB value, like "rgb(255,0,0)"
+HSL - specify a HSL value, like "hsl(0, 100%, 50%)"
+transpare*/
+p.one {
+    border-style: solid;
+    border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
+  }
+  

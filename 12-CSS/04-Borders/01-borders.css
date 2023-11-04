@@ -1,0 +1,57 @@
+/*The border-style property specifies what kind of border to display.
+
+The following values are allowed:
+
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+*/
+
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+
+/*If the border-style property has four values:
+
+border-style: dotted solid double dashed;
+top border is dotted
+right border is solid
+bottom border is double
+left border is dashed
+If the border-style property has three values:
+
+border-style: dotted solid double;
+top border is dotted
+right and left borders are solid
+bottom border is double
+If the border-style property has two values:
+
+border-style: dotted solid;
+top and bottom borders are dotted
+right and left borders are solid
+If the border-style property has one value:
+
+border-style: dotted;
+all four borders are dotted
+*/
+
+p {
+    border-style: dotted solid double dashed;
+  }
+  

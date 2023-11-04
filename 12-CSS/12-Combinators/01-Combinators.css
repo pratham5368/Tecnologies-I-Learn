@@ -1,0 +1,9 @@
+/*A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+
+There are four different combinators in CSS:
+
+descendant selector (space)
+child selector (>):-The child selector selects all elements that are the children of a specified element.
+adjacent sibling selector (+):-The adjacent sibling selector is used to select an element that is directly after another specific element.
+general sibling selector (~):-The general sibling selector selects all elements that are next siblings of a specified element.
+*/

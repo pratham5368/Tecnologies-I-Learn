@@ -1,0 +1,24 @@
+/*The border-radius property is used to add rounded borders to an element
+The CSS border-radius property defines the radius of an element's corners.
+
+Tip: This property allows you to add rounded corners to elements!
+
+Here are three examples:
+
+1. Rounded corners for an element with a specified background color:
+
+Rounded corners!
+
+2. Rounded corners for an element with a border:
+
+Rounded corners!
+
+3. Rounded corners for an element with a background image:*/
+#rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+  }
+  

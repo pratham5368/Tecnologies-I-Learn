@@ -1,0 +1,23 @@
+/*The background-color property specifies the background color of an element.
+With CSS, a color is most often specified by:
+
+a valid color name - like "red"
+a HEX value - like "#ff0000"
+an RGB value - like "rgb(255,0,0)"
+*/
+body {
+    background-color: lightblue;
+  }
+
+/*The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0.
+The lower value, the more transparent*/
+
+div {
+    background-color: green;
+    opacity: 0.3;
+  }
+  
+
+  div {
+    background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+  }

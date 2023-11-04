@@ -1,0 +1,50 @@
+/*The font-size property sets the size of the text.
+
+The font-size value can be an absolute, or relative size.
+
+Absolute size:
+
+Sets the text to a specified size
+Does not allow a user to change the text size in all browsers (bad for accessibility reasons)
+Absolute size is useful when the physical size of the output is known
+Relative size:
+
+Sets the size relative to surrounding elements
+Allows a user to change the text size in browsers*/
+
+p {
+    font-size: 14px;
+  }
+
+/*To allow users to resize the text (in the browser menu), many developers use em instead of pixels.
+
+*/
+p {
+    font-size: 0.875em; /* 14px/16=0.875em */
+  }
+
+
+/*font google
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+*/
+body {
+    font-family: "Trirong", serif;
+  }
+
+
+
+/*The font property is a shorthand property for:
+
+font-style
+font-variant
+font-weight
+font-size/line-height
+font-family*/
+p.a {
+    font: 20px Arial, sans-serif;
+  }
+  
+  p.b {
+    font: italic small-caps bold 12px/30px Georgia, serif;
+  }
+  

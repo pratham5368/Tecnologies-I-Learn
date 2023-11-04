@@ -1,0 +1,10 @@
+/*The border property is a shorthand property for the following individual border properties:
+
+border-width
+border-style (required)
+border-color
+*/
+p {
+    border: 5px solid red;
+  }
+  

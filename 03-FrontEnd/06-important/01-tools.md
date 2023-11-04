@@ -1,0 +1,12 @@
+- UI / UX Knowledge - Gaining UI/UX knowledge is not a must for a Frontend Developer but having an eye for design and a good understanding of UI/UX will help you in your career.
+- Design Systems - Learn how to create and work with design systems.
+- Visual Programming — it is entirely possible to be a successful, competent frontend developer without it, but for many frontend developers this path represents a serious chunk of their workload, and represents a very in-demand option for frontend development – especially for developers who have a visual aptitude.
+- For Animations: GSAP, Lottie, Framer Motion or MoJs
+- Web Graphics Library (WebGL): WebGL MDN, WebGL Fundamentals
+- 2D Graphics: Canvas, PixiJS, PhaserJS
+- 3D Graphics: ThreeJS, BabylonJS
+Have a look at Qwik and Partytown.
+- Houdini — Here is a good introductory article to houdini.
+- WebRTC - WebRTC is a free, open project that provides browsers and mobile applications with Real-Time Communications (RTC) capabilities via simple APIs. The WebRTC components have been optimized to best serve this purpose.
+- IDLs - Not every developer will have a need for understanding IDLs but there’s a good argument for having more JavaScript developers aware of their existence and hopefully the ability for making use of them as well.
+- WebAssembly - WebAssembly is a comparatively new technology that allows you to run code written in languages other than JavaScript on the web. It’s a low-level assembly-like language with a compact binary format that runs with near-native performance and provides languages such as C/C++ and Rust with a compilation target so that they can run on the web.

@@ -1,0 +1,17 @@
+//=: simple assignment
+int x = 5; // x gets the value 5
+//+=: addition assignment
+int x = 5;
+x += 3; // x gets the value 8 (5 + 3)
+//-=: subtraction assignment
+int x = 5;
+x -= 3; // x gets the value 2 (5 - 3)
+//*=: multiplication assignment
+int x = 5;
+x *= 3; // x gets the value 15 (5 * 3)
+//:-/=: division assignment
+int x = 15;
+x /= 3; // x gets the value 5 (15 / 3)
+//:-%=: modulo assignment
+int x = 7;
+x %= 3; // x gets the value 1 (7 % 3)

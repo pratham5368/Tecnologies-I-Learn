@@ -1,0 +1,45 @@
+/*The color property is used to set the color of the text. The color is specified by:
+
+a color name - like "red"
+a HEX value - like "#ff0000"
+an RGB value - like "rgb(255,0,0)"
+
+
+
+text alignment
+The text-align property is used to set the horizontal alignment of a text.*/
+h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: left;
+  }
+  
+  h3 {
+    text-align: right;
+  }
+  
+/*When the text-align property is set to "justify", each line is stretched so that every line 
+has equal width, and the left and right margins are straight*/
+div {
+    text-align: justify;
+  }
+
+
+
+  /*The text-transform property is used to specify uppercase and lowercase letters in a text.
+
+*/
+p.uppercase {
+    text-transform: uppercase;
+  }
+  
+  p.lowercase {
+    text-transform: lowercase;
+  }
+  
+  p.capitalize {
+    text-transform: capitalize;
+  }
+  

@@ -1,0 +1,33 @@
+/*Padding is used to create space around an element's content, inside of any defined borders.
+
+CSS has properties for specifying the padding for each side of an element:
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+All the padding properties can have the following values:
+
+length - specifies a padding in px, pt, cm, etc.
+% - specifies a padding in % of the width of the containing element
+inherit - specifies that the padding should be inherited from the parent element*/
+div {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+  }
+
+/*padding: 25px 50px 75px 100px;
+top padding is 25px
+right padding is 50px
+bottom padding is 75px
+left padding is 100px
+*/
+div {
+    padding: 25px 50px 75px 100px;
+  }
+  
+
+ /*To keep the width at 300px, no matter the amount of padding, you can use the box-sizing property.
+  This causes the element to maintain its actual width; if you increase the padding, the available content space will decrease.*/ 

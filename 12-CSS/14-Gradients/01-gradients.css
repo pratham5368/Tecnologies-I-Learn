@@ -1,0 +1,53 @@
+/*CSS defines three types of gradients:
+
+Linear Gradients (goes down/up/left/right/diagonally)
+Radial Gradients (defined by their center)
+Conic Gradients (rotated around a center point)
+
+
+Linear-Gradient
+background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+
+*/
+
+#grad {
+    background-image: linear-gradient(red, yellow);
+  }
+
+#grad {
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  }
+  
+
+
+
+
+
+
+
+/*CSS Radial Gradients
+A radial gradient is defined by its center.
+
+To create a radial gradient you must also define at least two color stops.
+
+background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+*/
+#grad {
+    background-image: radial-gradient(red, yellow, green);
+  }
+
+  
+
+
+
+/*CSS Conic Gradients
+A conic gradient is a gradient with color transitions rotated around a center point.
+
+To create a conic gradient you must define at least two colors.
+
+background-image: conic-gradient([from angle] [at position,] color [degree], color [degree], ...);*/
+
+#grad {
+    background-image: conic-gradient(red, yellow, green);
+  }
+  

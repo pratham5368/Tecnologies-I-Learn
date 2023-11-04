@@ -1,0 +1,86 @@
+/*The background-image property specifies an image to use as the background of an element.
+
+*/
+body {
+    background-image: url("bgdesert.jpg");
+  }
+
+
+/*By default, the background-image property repeats an image both horizontally and vertically.
+
+the image above is repeated only horizontally (background-repeat: repeat-x;),
+ To repeat an image vertically, set background-repeat: repeat-y;
+ 
+ 
+ 
+ Showing the background image only once is also specified by the background-repeat property:
+
+*/
+
+body {
+    background-image: url("gradient_bg.png");
+    background-repeat: repeat-x;
+  }
+  body {
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+  }
+
+
+
+
+/*The background-position property is used to specify the position of the background image.
+
+*/
+
+
+
+body {
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+
+  
+/*The background-attachment property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page*/
+body {
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-attachment: scroll;
+
+  }
+  
+/*CSS background-origin Property
+The CSS background-origin property specifies where the background image is positioned.
+
+The property takes three different values:
+
+border-box - the background image starts from the upper left corner of the border
+padding-box - (default) the background image starts from the upper left corner of the padding edge
+content-box - the background image starts from the upper left corner of the content
+The following example illustrates the background-origin property:*/
+#example1 {
+  border: 10px solid black;
+  padding: 35px;
+  background: url(img_flwr.gif);
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
+/*CSS background-clip Property
+The CSS background-clip property specifies the painting area of the background.
+
+The property takes three different values:
+
+border-box - (default) the background is painted to the outside edge of the border
+padding-box - the background is painted to the outside edge of the padding
+content-box - the background is painted within the content box*/
+
+#example1 {
+  border: 10px dotted black;
+  padding: 35px;
+  background: yellow;
+  background-clip: content-box;
+}
