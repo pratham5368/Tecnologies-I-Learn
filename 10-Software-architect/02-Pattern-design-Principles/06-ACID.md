@@ -1,0 +1,1 @@
+ACID (Atomicity, Consistency, Isolation, Durability) and CAP (Consistency, Availability, Partition Tolerance) are essential concepts in distributed systems. They are often used to explain the trade-offs between consistency and availability.
