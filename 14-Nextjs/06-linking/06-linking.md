@@ -1,0 +1,141 @@
+
+There are two ways to navigate between routes in Next.js:
+
+- Using the [`<Link>` Component](#link-component)
+- Using the [`useRouter` Hook](#userouter-hook)
+
+
+## `<Link>` Component
+
+`<Link>` is a built-in component that extends the HTML `<a>` tag to provide [prefetching](#1-prefetching) and client-side navigation between routes. It is the primary way to navigate between routes in Next.js.
+
+You can use it by importing it from `next/link`, and passing a `href` prop to the component:
+
+```tsx filename="app/page.tsx" switcher
+import Link from 'next/link'
+
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+```
+
+```jsx filename="app/page.js" switcher
+import Link from 'next/link'
+
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+```
+
+### Examples
+
+#### Linking to Dynamic Segments
+
+When linking to [dynamic segments](/docs/app/building-your-application/routing/dynamic-routes), you can use [template literals and interpolation](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals) to generate a list of links. For example, to generate a list of blog posts:
+
+```jsx filename="app/blog/PostList.js"
+import Link from 'next/link'
+
+export default function PostList({ posts }) {
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+#### Checking Active Links
+
+You can use [`usePathname()`](/docs/app/api-reference/functions/use-pathname) to determine if a link is active. For example, to add a class to the active link, you can check if the current `pathname` matches the `href` of the link:
+
+```jsx filename="app/ui/Navigation.js"
+'use client'
+
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
+export function Navigation({ navLinks }) {
+  const pathname = usePathname()
+
+  return (
+    <>
+      {navLinks.map((link) => {
+        const isActive = pathname === link.href
+
+        return (
+          <Link
+            className={isActive ? 'text-blue' : 'text-black'}
+            href={link.href}
+            key={link.name}
+          >
+            {link.name}
+          </Link>
+        )
+      })}
+    </>
+  )
+}
+```
+
+#### Scrolling to an `id`
+
+The default behavior of the Next.js App Router is to scroll to the top of a new route or to maintain the scroll position for backwards and forwards navigation.
+
+If you'd like to scroll to a specific `id` on navigation, you can append your URL with a `#` hash link or just pass a hash link to the `href` prop. This is possible since `<Link>` renders to an `<a>` element.
+
+```jsx
+<Link href="/dashboard#settings">Settings</Link>
+
+// Output
+<a href="/dashboard#settings">Settings</a>
+```
+
+#### Disabling scroll restoration
+
+The default behavior of the Next.js App Router is to scroll to the top of a new route or to maintain the scroll position for backwards and forwards navigation. If you'd like to disable this behavior, you can pass `scroll={false}` to the `<Link>` component, or `scroll: false` to `router.push()` or `router.replace()`.
+
+```jsx
+// next/link
+<Link href="/dashboard" scroll={false}>
+  Dashboard
+</Link>
+```
+
+```jsx
+// useRouter
+import { useRouter } from 'next/navigation'
+
+const router = useRouter()
+
+router.push('/dashboard', { scroll: false })
+```
+
+## `useRouter()` Hook
+
+The `useRouter` hook allows you to programmatically change routes.
+
+This hook can only be used inside Client Components and is imported from `next/navigation`.
+
+```jsx filename="app/page.js"
+'use client'
+
+import { useRouter } from 'next/navigation'
+
+export default function Page() {
+  const router = useRouter()
+
+  return (
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
+  )
+}
+```
+
+
+
