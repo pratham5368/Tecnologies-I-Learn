@@ -10,3 +10,17 @@ You might already be familiar with VMs: a guest operating system such as Linux o
 - Containers virtualize at the OS level while VMs virtualize at the hardware level
 - Containers share the OS kernel and use a fraction of the memory VMs require
 
+### GKE - Google Kubernetes Engine
+GKE is a managed Kubernetes service that lets you deploy, manage, and scale containerized applications on Google Cloud.
+
+### EKS - Amazon Elastic Kubernetes Service
+Amazon Elastic Kubernetes Service (Amazon EKS) is a fully managed Kubernetes service from AWS.
+
+### AKS - Azure Kubernetes Service
+Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.
+
+### ECS / Fargate
+ECS is a container orchestration service that allows you to run Docker containers on a cluster of EC2 instances. ECS is a good choice if you want to run Docker containers on EC2 instances and have full control over the underlying infrastructure.
+
+Fargate is a serverless container orchestration service that allows you to run Docker containers without having to manage servers, clusters, or any other infrastructure. Fargate is a good choice if you want to run Docker containers without having to manage servers or clusters.
+
