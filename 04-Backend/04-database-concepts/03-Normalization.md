@@ -51,3 +51,8 @@ Foreign Key references the primary key of another Table! It helps connect your T
 - It ensures rows in one table have corresponding rows in another
 - Unlike the Primary key, they do not have to be unique. Most often they aren’t
 - Foreign keys can be null even though primary keys can not
+
+## Denormalization
+Denormalization attempts to improve read performance at the expense of some write performance. Redundant copies of the data are written in multiple tables to avoid expensive joins. Some RDBMS such as PostgreSQL and Oracle support materialized views which handle the work of storing redundant information and keeping redundant copies consistent.
+
+Once data becomes distributed with techniques such as federation and sharding, managing joins across data centers further increases complexity. Denormalization might circumvent the need for such complex joins.
