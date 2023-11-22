@@ -24,3 +24,6 @@ All the advance things I have learned about programming
 22. [Docker](./22-Docker/)
 23. [Redis](./23-Redis/)
 24. [system Design](./24-system-design/)
+25. [design system](./25-design-system/)
+26. [kubernetes](./26-kubernetes/)
+
