@@ -448,3 +448,387 @@ reduceAdd.call(obj2, 1, 2, 3, 4, 5); // returns 15
 ```
 ## 31.  What is Object Destructuring?
 ↑ Object Destructuring is a new and cleaner way of getting or extracting values from an object or an array.
+## 32.  Show the usage of typeof operator on different types of values
+The typeof operator returns a string indicating the type of the operand
+```
+typeof 50; //   "number"
+typeof "text"; //   "string"
+typeof true; //   "boolean"
+typeof undefined; //   "undefined"
+typeof function () {}; //   "function"
+typeof 10n; //   "bigint"
+typeof Symbol(); //   "symbol"
+typeof [1, 2]; //   "object"
+typeof {}; //   "object"
+ 
+typeof NaN; //   "number"        (NaN is Not a Number)
+typeof undeclaredVar; //   "undefined"     (undeclaredVariable is never declared)
+typeof Infinity; //   "number"        (Infinity, -Infinity, -0 are all valid numbers in JavaScript)
+typeof null; //   "object"        (This stands since the beginning of JavaScript)
+typeof /regex/; //   "object"        (regular expressions start and end with '/' in literal form)
+```
+## 33.  Show the different ways of concatenating numbers and strings
+```
+// numbers and strings
+1 + "2"; // 12
+1 + 2 + "3"; // 33
+1 + 2 + "3" + "4"; // 334
+1 + "One"; // 1One
+ 
+// strings and numbers
+"1" + 2; // 12
+"1" + "2" + 3; // 123
+"1" + "2" + 3 + 4; // 1234
+"1" + "2" + (3 + 4); // 127
+"One" + 1; // One1
+ 
+// mix of string and numbers
+1 + 2 + "3" + "4" + 5 + 6; // 33456
+1 + 2 + "3" + "4" + (5 + 6); // 33411
+"1" + "2" + (3 + 4) + 5 + "6"; // 12756
+```
+## 34. Show the conversion from number to string and vice versa
+```
+// number to string conversion
+const num = 12;
+ 
+String(num); // "12"
+num.toString(); // "12"
+num + ""; // "12"
+
+// string to number conversion
+const str = "12";
+ 
+Number(str); // 12
++str; // 12
+parseInt(str); // 12
+```
+
+## 35. Show the frequently and commonly used methods available on Number object with coding examples
+- isInteger is used to check if the given number is integer or not
+- parseInt is used to convert a given value in to integer
+- parseFloat is used to convert a given value in to floating number
+- isNaN is used to check if the given value is NaN or no
+- toFixed is used to limit the number of digits after the decimal place
+- toPrecision is used to limit the total number of digits to represent the number
+```
+Number.isInteger(1.5); // false
+Number.isInteger(-15); // true
+ 
+Number.parseInt("5.8"); // 5
+Number.parseInt("123x"); // 123
+ 
+Number.parseFloat("5.86"); // 5.86
+Number.parseFloat("-12.69x"); // -12.69
+ 
+Number.isNaN(NaN); // true
+Number.isNaN("text" - 10); // true
+Number.isNaN("text"); // false
+
+(56.369).toFixed(2); // 56.37
+(59).toFixed(3); // 59.000
+ 
+(32.458).toPrecision("3"); // 32.5
+(98.1).toPrecision(1); // 1e+2
+```
+## 36. Create a function which returns a random number in the given range of values both inclusive
+Math.random function returns a floating-point, pseudo-random number between 0 (inclusive) and 1 (exclusive)
+```
+function randomNumberGeneratorInRange(rangeStart, rangeEnd) {
+  return rangeStart + Math.round(Math.random() * (rangeEnd - rangeStart));
+}
+ 
+randomNumberGeneratorInRange(10, 50); // 12
+```
+## 37. Write a program to reverse a string
+- String can be reversed by iterating it and storing it in reverse order
+- String can also be reversed by converting it to array, then joining it after reversing
+```
+const str = "JavaScript is awesome";
+let reversedString = "";
+for (let i = 0; i < str.length; i++) {
+  reversedString = str.charAt(i) + reversedString;
+}
+ 
+reversedString; // "emosewa si tpircSavaJ"
+
+const str = "JavaScript is awesome";
+str.split("").reverse().join(""); // "emosewa si tpircSavaJ"
+```
+## 38.  Write a program to reverse a given integer number
+- The remainder of the number can be fetched and the number can be divided by 10 to remvoe the the digit in loop till number becomes 0
+- A simple approach to reverse a number could also be to convert it in to a string and then reverse it
+```
+let num = 3849;
+ 
+let reversedNum = 0;
+while (num !== 0) {
+  reversedNum = reversedNum * 10 + (num % 10);
+  num = Math.floor(num / 10);
+}
+ 
+reversedNum; // 9483
+```
+```
+let num = 3849;
+ 
+let numStr = String(num);
++numStr.split("").reverse().join(""); // 9483
+```
+## 39. Write a function to truncate a string to a certain number of letters
+```
+// Example
+truncateString("JavaScript", 7); // "Java..."
+truncateString("JS is fun", 10); // "JS is fun"
+truncateString("JS is funny", 10); // "JS is f..."
+```
+- Text can be truncated by fetching the substring from start till the count of characters
+- substr methods of String can be used to fetch the part of the string
+```
+function truncateString(str, charCount) {
+  if (str.length > charCount) {
+    return str.substr(0, charCount - 3) + "...";
+  } else {
+    return str;
+  }
+}
+```
+## 40. Write a code to truncate a string to a certain number of words
+```
+const str = "JavaScript is simple but not easy to master";
+const wordLimit = 3;
+ 
+str.split(" ").slice(0, wordLimit).join(" "); // "JavaScript is simple"
+```
+## 41.  Create a function which returns random hex color code
+- The color code is popularly represented in hexadecimal format for RGB colors
+- The minimum value for the color is '#000000' and maximum is '#FFFFFF'
+```
+function getGetHEXColorCode() {
+  const rValue = Math.round(0xff * Math.random())
+    .toString(16)
+    .padStart(2, "0");
+  const gValue = Math.round(0xff * Math.random())
+    .toString(16)
+    .padStart(2, "0");
+  const bValue = Math.round(0xff * Math.random())
+    .toString(16)
+    .padStart(2, "0");
+  return "#" + rValue + gValue + bValue;
+}
+```
+## 42.  Explain hoisting in JavaScript.
+
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase.
+```
+console.log(x);  // Output: undefined
+var x = 10;
+console.log(x);  // Output: 10
+```
+## 43. Show the most common ways of creating functions in JavaScript
+Functions are most commonly created using function statements, function expressions and arrow functions
+Function statements get hoisted unlike function expressions
+```
+// Regular function as a function statement
+function functionName(params) {
+  //code block
+}
+
+// Regular function as a function expression
+const functionName = function (params) {
+  //code block
+};
+
+// Arrow function as a function expression
+const arrowFunctionName = (params) => {
+  //code block
+};
+```
+## 44. Achieve prototypal inheritance using functions to create objects in JavaScript
+- 2 functions can be used to create objects with constructor call to the functions
+- The prototype of the child function is connected with the parent function to achieve the inheritance behavior
+```
+function parent(name) {
+  this.name = name;
+}
+ 
+parent.prototype.getName = function () {
+  return this.name;
+};
+ 
+function child(name) {
+  parent.call(this, name);
+}
+ 
+child.prototype = Object.create(parent.prototype);
+child.prototype.getMyName = function () {
+  return this.name;
+};
+ 
+// driver code
+var fk = new child("FK");
+console.log(fk.getName());
+console.log(fk.getMyName());
+ 
+var pk = new parent("PK");
+console.log(pk.getName());
+```
+
+## 45.  Write a code to show the differences between the techniques, currying and partial application
+A function returning another function that might return another function, but every returned function must take only one parameter at a time is currying
+A function returning another function that might return another function, but each returned function can take several parameters is partial application
+```
+// currying
+function multiply(num1) {
+  return function (num2) {
+    return function (num3) {
+      return num1 * num2 * num3;
+    };
+  };
+}
+
+// partial application
+function multiply(num1) {
+  return function (num2, num3) {
+    return function (num4) {
+      return num1 * num2 * num3 * num4;
+    };
+  };
+}
+```
+## 46.  Write a function which helps to achieve multiply(a)(b) and returns product of a and b
+```
+// Example
+multiply(2)(4); // 8
+multiply(5)(3); // 15
+```
+The implementation of this can be achieved by calling a function which returns a function
+```
+function multiply(num1) {
+  return function (num2) {
+    return num1 * num2;
+  };
+}
+```
+## 47. Show the different ways of creating an object
+- Object can be created using Object constuctor
+- Object can also be created using Object literal form
+- Object can be created using new keyword to constructor function
+- Object can be created using Class
+```
+const object = Object.create({ key: value });
+
+const object = {
+  key: value,
+};
+```
+```
+function getObject(key, value) {
+  this[key] = value;
+}
+```
+```
+const object = new getObject("key", "value");
+```
+```
+class Obj {
+  constructor(key, value) {
+    this[key] = value;
+  }
+}
+```
+```
+const object = new Obj("key", "value");
+```
+## 48. What is currying in JavaScript?
+Currying is an advanced technique to transform a function of arguments n, to n functions of one or fewer arguments.
+
+Example of a curried function:
+```
+function add (a) {
+  return function(b){
+    return a + b;
+  }
+}
+
+add(3)(4) 
+```
+For Example, if we have a function f(a,b), then the function after currying, will be transformed to f(a)(b).
+
+By using the currying technique, we do not change the functionality of a function, we just change the way it is invoked.
+
+Let’s see currying in action:
+```
+function multiply(a,b){
+  return a*b;
+}
+
+function currying(fn){
+  return function(a){
+    return function(b){
+      return fn(a,b);
+    }
+  }
+}
+
+var curriedMultiply = currying(multiply);
+
+multiply(4, 3); // Returns 12
+
+curriedMultiply(4)(3); // Also returns 12
+```
+## 49. What are classes in javascript?
+Introduced in the ES6 version, classes are nothing but syntactic sugars for constructor functions. They provide a new way of declaring constructor functions in javascript.  Below are the examples of how classes are declared and used:
+```
+// Before ES6 version, using constructor functions
+function Student(name,rollNumber,grade,section){
+  this.name = name;
+  this.rollNumber = rollNumber;
+  this.grade = grade;
+  this.section = section;
+}
+
+// Way to add methods to a constructor function
+Student.prototype.getDetails = function(){
+  return 'Name: ${this.name}, Roll no: ${this.rollNumber}, Grade: ${this.grade}, Section:${this.section}';
+}
+
+
+let student1 = new Student("Vivek", 354, "6th", "A");
+student1.getDetails();
+// Returns Name: Vivek, Roll no:354, Grade: 6th, Section:A
+
+// ES6 version classes
+class Student{
+  constructor(name,rollNumber,grade,section){
+    this.name = name;
+    this.rollNumber = rollNumber;
+    this.grade = grade;
+    this.section = section;
+  }
+
+  // Methods can be directly added inside the class
+  getDetails(){
+    return 'Name: ${this.name}, Roll no: ${this.rollNumber}, Grade:${this.grade}, Section:${this.section}';
+  }
+}
+
+let student2 = new Student("Garry", 673, "7th", "C");
+student2.getDetails();
+// Returns Name: Garry, Roll no:673, Grade: 7th, Section:C
+```
+Key points to remember about classes:
+
+- Unlike functions, classes are not hoisted. A class cannot be used before it is declared.
+- A class can inherit properties and methods from other classes by using the extend keyword.
+- All the syntaxes inside the class must follow the strict mode(‘use strict’) of javascript. An error will be thrown if the strict mode rules are not followed
+
+[few important one ](https://www.interviewbit.com/javascript-interview-questions/#output-of-following-code-1)
+
+## 50.  What is the value of -'34'+10
+
+ -24. minus(-) in front of a string is an unary operator that will convert the string to a number and will make it negative. Hence, -'34' becomes, -34 and then plus (+) will perform simple addition as both the operands are number.
+
+## 51. Question: What is the value of +'dude'
+
+Answer: NaN. The plus (+) operator in front of a string is an unary operator that will try to convert the string to number. Here, JavaScript will fail to convert the "dude" to a number and will produce NaN.
