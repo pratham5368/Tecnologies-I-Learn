@@ -854,4 +854,58 @@ reflow: When you change size or position of an element in the page, all the elem
 
 Why reflow is bad: Reflows could be very expensive and it might have a performance hit specially in the smaller devices like phone. As it might causes changes in the portion (or whole) layout of the page.
 
-## 54. 
+## 54. few rapid fire
+### Nth root of number
+```
+const nthRoot = (x, n) => Math.pow(x, 1 / n);
+nthRoot(32, 5); // 2
+```
+### Logarithm in specific base
+```
+const logBase = (n, base) => Math.log(n) / Math.log(base);
+logBase(10, 10); // 1
+logBase(100, 10); // 2
+```
+### Generates Gaussian (normally distributed) random numbers.
+
+```
+const randomGauss = () => {
+  const theta = 2 * Math.PI * Math.random();
+  const rho = Math.sqrt(-2 * Math.log(1 - Math.random()));
+  return (rho * Math.cos(theta)) / 10.0 + 0.5;
+};
+randomGauss(); // 0.5
+
+```
+
+### Sums all the numbers between 1 and n.
+```
+const sumN = n => (n * (n + 1)) / 2;
+sumN(100); // 5050
+```
+### Number has decimal digits
+```
+const hasDecimals = num => num % 1 !== 0;
+
+hasDecimals(1); // false
+hasDecimals(1.001); // true
+```
+### Number is prime
+```
+const isPrime = num => {
+  const boundary = Math.floor(Math.sqrt(num));
+  for (let i = 2; i <= boundary; i++) if (num % i === 0) return false;
+  return num >= 2;
+};
+
+isPrime(11); // true
+```
+### Checks if all the elements in values are included in arr.
+```
+const includesAll = (arr, values) => values.every(v => arr.includes(v));
+
+includesAll([1, 2, 3, 4], [1, 4]); // true
+includesAll([1, 2, 3, 4], [1, 5]); // false
+```
+
+### 
