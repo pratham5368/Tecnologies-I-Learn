@@ -909,3 +909,531 @@ includesAll([1, 2, 3, 4], [1, 5]); // false
 ```
 
 ### 
+
+
+## 55.  Show the different ways of creating an array
+- Arrays are the collection of values in javascript. Array is a special type of object in JavaScript
+- Arrays values are indexed from 0 and have special property length which stores the count of elements present in array
+```
+// literal form
+const arr = [];
+
+// consturctor form
+const arr = new Array();
+
+// pre defined number of slots
+const arr = new Array(10);
+
+// with values
+const arr = [1, true, "string"];
+
+// constructor form with values
+const arr = new Array(1, true, "string");
+```
+## 56. Write a program to iterate over an array and print all the values of it
+- Arrays can be iterated by using its index to fetch the values
+- Arrays also can be iterated with for each style loops
+```
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+for (let index in arr) {
+  console.log(arr[index]);
+}
+
+for (let value of arr) {
+  console.log(value);
+}
+
+arr.forEach((val) => console.log(val));
+```
+## 57. Check if given input is an array or not
+Array.isArray is a method which checks if the given argument is an array or not
+Alternatively the toString method present on Object prototype can be used to check if it is an array
+```
+Array.isArray(arr);
+```
+```
+Object.prototype.toString.call(arr) === "[object Array]";
+```
+## 58.  Write a program to iterate over a 2 dimensional array and print all the values of it
+- Arrays can be iterated by using its index to fetch the values
+- Arrays also can be iterated with for each style loops, with one loop to iterate the rows and inside it for cells
+```
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+
+for (let rowArr of arr) {
+  for (let value of rowArr) {
+    console.log(value);
+  }
+}
+
+arr.forEach((rowArr) => rowArr.forEach((val) => console.log(val)));
+```
+
+## 59. Write a code to iterate over a map
+- Map does not contain any keys by default unlike objects which has keys from its prototype
+- Map's keys can be any value (including functions, objects, or any primitive) unlike object where keys are only strings
+- The keys in Map are ordered in a simple, straightforward way
+- The number of items in a Map is easily retrieved from its size property
+- Map is an iterable object
+- map is an iterable object and can be iterated using for..of loop
+- map can also be iterated by simple forEach loop
+```
+for (let val of map) console.log(val[0], val[1]);
+
+for (let key of map.keys()) console.log(key, map.get(key));
+
+map.forEach((value, key) => console.log(key, value));
+```
+## 60. Write a program to polyfill filter functionality of the Array
+- filter iterates over the all values of array and passes value, index and array (itself) as the arguments
+- Function returns a new array which filtering the values of the original array
+```
+if (!Array.prototype.filter) {
+  Array.prototype.filter = function (callback) {
+    if (typeof callback !== "function")
+      throw new Error("Argument passed has to be a function");
+ 
+    let newArray = [];
+ 
+    for (let index in this) {
+      if (callback(this[index], index, this)) {
+        newArray.push(this[index]);
+      }
+    }
+    return newArray;
+  };
+}
+```
+## 61.  Write a program to polyfill map functionality of the Array
+- map iterates over the all values of array and passes value, index and array (itself) as the arguments
+- Function returns a new array which is same as the length of the original array
+```
+if (!Array.prototype.map) {
+  Array.prototype.map = function (callback) {
+    if (typeof callback !== "function")
+      throw new Error("Argument passed has to be a function");
+ 
+    let newArray = [];
+ 
+    for (let index in this) {
+      newArray.push(callback(this[index], index, this));
+    }
+    return newArray;
+  };
+}
+```
+## 62. Sort the given array of objects in ascending order according the authors lastname
+```
+// Example
+const books = [
+  { name: "Harry Potter", author: "Joanne Rowling" },
+  { name: "Warcross", author: "Marie Lu" },
+  { name: "The Hunger Games", author: "Suzanne Collins" },
+];
+```
+- sort takes a function and expects the return value to be an integer for sorting
+- The last names of the author can be compared and the result can be returned for sorting
+```
+books.sort((book1, book2) => {
+  const authorLastName1 = book1.author.split(" ")[1];
+  const authorLastName2 = book2.author.split(" ")[1];
+  return authorLastName2 > authorLastName1 ? -1 : 1;
+});
+```
+## 63. Write a code to generate an array with range of numbers and shuffle them
+- An array of numbers in the range can be generated from a function which can take start and end value of the range
+The shuffling can be achieved simply by sorting the array using a function which randomly returns positive or negative numbers
+- The shuffling of the values can be also done by picking a value from a random index from the current array and moving it in to a new array
+```
+function rangeGenFunc(start = 1, end = 0) {
+  const arr = [];
+  for (let i = start; i <= end; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
+ 
+const arr = rangeGenFunc(1, 10); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+arr.sort(() => 0.5 - Math.random()); // [6, 8, 5, 10, 4, 3, 9, 2, 7, 1]
+```
+```
+function* rangeGen(start = 1, end = 0) {
+  for (let i = start; i <= end; i++) {
+    yield i;
+  }
+}
+let arr = [...rangeGen(1, 10)]; // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let shuffledArr = [];
+const length = arr.length;
+for (let i = 0; i < length; i++) {
+  shuffledArr.push(...arr.splice(Math.floor(Math.random() * arr.length), 1));
+}
+ 
+console.log(shuffledArr); // [5, 4, 7, 10, 3, 6, 8, 2, 1, 9]
+```
+
+## 64.  Write a program to calculate the sum of all the values of an array
+- Sum of the values of an array can calculated by iterating and adding all the values of the array
+- reduce method of array can be used efficiently to calculate the sum with or without initial value
+```
+const sum = arr.reduce((acc, value) => acc + value, 0);
+
+const sum = arr.reduce((acc, value) => acc + value);
+
+const sum = 0;
+for (let value of arr) {
+  sum = sum + value;
+}
+```
+
+## 65. Create an array of length n with all the values of it set to 10
+- fill is a method on Array prototype which fills all the slots of array with the value given passed as the argument
+```
+const n = 5;
+const arr = new Array(n);
+arr.fill(10);
+```
+## 66. Write the code to remove the duplicates from the array
+Set is a data structure which does not allow duplicate elements
+```
+const set = new Set(arr);
+const distinctArr = [...set];
+```
+## 67.  Design a flat function which flattens an array to any depth
+Flat function can be used to flatten the array by recursive call
+function flat(arr) {
+  const flatArr = [];
+  arr.forEach((value) => {
+    if (Array.isArray(value)) {
+      flatArr.push(...flat(value));
+    } else {
+      flatArr.push(value);
+    }
+  });
+  return flatArr;
+}
+
+## 68. Create a function named "average" which can calculate the average of an array and should be available to be called from any Array object.
+The function added to Array prototype are accessible to all the objects of Array
+```
+Array.prototype.average = function () {
+  let total = 0;
+ 
+  for (let index in this) {
+    total += this[index];
+  }
+  return total / this.length;
+};
+```
+## 69. Write a code to make xmlHTTPRequest to get data from the server asynchronously
+- XMLHttpRequest (XHR) objects are used to interact with server to retrieve data from a URL without having to do a full page refresh
+- XHR requests can be initiated by creating the object and providing the arguments such as 'method', url etc
+The success and failure of the request can be managed by callbacks
+```
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+xhr.onload = function () {
+  console.log(this.response);
+};
+xhr.onerror = function () {
+  console.log(this.statusText);
+};
+xhr.send();
+```
+## 70. Convert the xmlHTTPRequest to promise based function to get the data from the server asynchronously (fetch)
+- The Promise can be used to wrap the XHR request and provide cleaner interface to user for AJAX requests
+- Success and failure of the XHR request can be handled to resolve or reject the promise respectively
+```
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = function () {
+      try {
+        if (this.status === 200) {
+          resolve(this);
+        } else {
+          reject(this);
+        }
+      } catch (e) {
+        reject(e);
+      }
+    };
+    xhr.onerror = function () {
+      reject(this);
+    };
+    xhr.send();
+  });
+}
+// driver code
+fetchData("https://reqbin.com/echo/get/json")
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => console.log(err));
+```
+## 71. Make a fetch request to retrieve and store JSON data from server
+- Fetch API is provided by the browser which returns a promise
+- Fetch takes url as the 1st argument and an object with request details as 2nd optional argument
+- Response is a streamable object and hence we will have to invoke JSON / text method on it which returns promise which settles to the data
+```
+const response = fetch("https://reqbin.com/echo/get/json", {
+  method: "GET", // *GET, POST, PUT, DELETE, etc
+  headers: {
+    "Content-Type": "application/json", // header
+  },
+});
+// driver code
+response
+  .then((response) => {
+    const responseData = response.json();
+    responseData.then((data) => {
+      console.log(data);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
+## 72. Cancel a fetch request
+- AbortController is an interface which can be used to abort a fetch request
+- signal object of the AbortController object can be used as the part of the argument to fetch and abort on controller object can be used to stop the request
+```
+const controller = new AbortController();
+var signal = controller.signal;
+fetch(url, { signal })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.warn(err);
+  });
+controller.abort();
+```
+## 71. Write a code to resolve all the list of asynchronous executions of promises no matter if each execution succeeds or fails. Print the output of each
+- Promise.allSettled is the method which helps to achieve the functionality which completes after all promises settle no matter of failures
+- It receives array of promises as an argument to it
+- Array of results will be the output after completion of all promises with status as 'fulfilled' or 'rejected'
+```
+const asyncArr = [async1, async2, async3];
+const promiseArr = asyncArr.map((async) => async());
+finalResolution = Promise.allSettled(promiseArr);
+finalResolution
+  .then((output) => {
+    for (let data of output) {
+      if (data.status === "fulfilled")
+        console.log(data.status + ": " + data.value);
+      else if (data.status === "rejected")
+        console.log(data.status + ": " + data.reason);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
+```
+const asyncArr = [async1, async2, async3];
+const promiseArr = asyncArr.map((async) => async());
+(async function () {
+  try {
+    output = await Promise.allSettled(promiseArr);
+    for (let data of output) {
+      if (data.status === "fulfilled")
+        console.log(data.status + ": " + data.value);
+      else if (data.status === "rejected")
+        console.log(data.status + ": " + data.reason);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})();
+```
+## 73. Create a function which receives a function as argument and executes it after 2 seconds
+```
+function callbackExec(callback) {
+  if (typeof callback === "function") {
+    setTimeout(() => {
+      callback();
+      console.log("Callback is executed after 2 seconds");
+    }, 2000);
+  }
+}
+ 
+function displayHello() {
+  console.log("Hello");
+}
+ 
+callbackExec(displayHello);
+```
+## 74.  Implement a function to get elements by tag name (document.getElementsByTagName() method)
+- The getElementsByTagName method of Document interface returns an HTMLCollection of elements with the given tag name.
+- For example, document.getElementsByTagName('div') returns a collection of all div elements in the document.
+```
+/**
+ * @param {HTMLElement | null} tree
+ * @return {Array}
+ */
+function getElementsByTagName(root, tagName) {
+  if (!root) return [];
+ 
+  let result = [];
+ 
+  if (root.tagName.toLowerCase() === tagName.toLowerCase()) {
+    result.push(root);
+  }
+ 
+  if (root.hasChildNodes()) {
+    for (let child of root.children) {
+      result = result.concat(getElementsByTagName(child, tagName));
+    }
+  }
+ 
+  return result;
+}
+```
+## 75. Implement a function to check if a given DOM tree has duplicate IDs
+- In a given DOM tree, the id on each node has be unique
+- Although HTML is very forgiving, but we should avoid duplicate identifiers
+```
+/**
+ * @param {HTMLElement | null} tree
+ * @return {Boolean}
+ */
+function hasDuplicateId(tree, idSet = new Set()) {
+  if (!tree) return false;
+ 
+  if (idSet.has(tree.id)) return true;
+ 
+  tree.id && idSet.add(tree.id);
+ 
+  if (tree.hasChildNodes()) {
+    for (let child of tree.children) {
+      const result = hasDuplicateId(child, idSet);
+      if (result) return true;
+    }
+  }
+ 
+  return false;
+}
+```
+
+## 76. What will be the output of the following code?
+1. 
+```
+var bar = true;
+console.log(bar + 0);   
+console.log(bar + "xyz");  
+console.log(bar + true);  
+console.log(bar + false);
+```
+The code above will output 1, "truexyz", 2, 1 as output. Here's a general guideline for the plus operator:
+
+- Number + Number -> Addition
+- Boolean + Number -> Addition
+- Boolean + Boolean -> Addition
+- Number + String -> Concatenation
+- String + Boolean -> Concatenation
+- String + String -> Concatenation
+
+2. 
+```
+var z = 1, y = z = typeof y;
+console.log(y);
+```
+The code above will print string "undefined" as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is Right to Left so first typeof y will evaluate first which is string "undefined" and assigned to z and then y would be assigned the value of z.
+
+3. 
+```
+var foo = function bar() { return 12; };
+typeof bar();
+```
+The output will be Reference Error. To fix the bug we can try to rewrite the code a little bit:
+
+Sample 1
+```
+var bar = function() { return 12; };
+typeof bar();
+```
+Sample 2
+```
+function bar() { return 12; };
+typeof bar();
+```
+4. difference in both code
+```
+// Run-Time function declaration
+  foo(); // Call foo function here, It will give an error
+  var foo = function() {
+    console.log("Hi I am inside Foo");
+  };
+```
+```
+// Parse-Time function declaration
+bar(); // Call bar function here, It will not give an Error
+function bar() {
+  console.log("Hi I am inside Foo");
+}
+```
+## 77.  Difference between Function, Method and Constructor calls in JavaScript.
+
+functions : The simplest usages of function call:
+```
+function helloWorld(name) {
+  return "hello world, " + name;
+}
+```
+helloWorld("JS Geeks"); // "hello world JS Geeks"
+Methods in JavaScript are nothing more than object properties that are functions.
+```
+var obj = {
+  helloWorld : function() {
+    return "hello world, " + this.name;
+  },
+  name: 'John Carter'
+}
+```
+obj.helloWorld(); // // "hello world John Carter"
+Notice how helloWorld refer to this properties of obj. Here it's clear or you might have already understood that this gets bound to obj. But the interesting point that we can copy a reference to the same function helloWorld in another object and get a difference answer. Let see:
+```
+var obj2 = {
+  helloWorld : obj.helloWorld,
+  name: 'John Doe'
+}
+obj2.helloWorld(); // "hello world John Doe"
+```
+You might be wonder what exactly happens in a method call here. Here we call the expression itself determine the binding of this this, The expression obj2.helloWorld() looks up the helloWorld property of obj and calls it with receiver object obj2.
+
+The third use of functions is as constructors. Like function and method, constructors are defined with function.
+```
+function Employee(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+var emp1 = new Employee('John Doe', 28);
+emp1.name; // "John Doe"
+emp1.age; // 28
+```
+## 78. Detecting object using typeof operator
+```
+console.log(typeof {});           // object
+console.log(typeof []);           // object
+console.log(typeof new Array());  // object
+console.log(typeof null);         // object 
+console.log(typeof new RegExp()); // object
+console.log(typeof new Date());   // object
+```
+## 79. 
