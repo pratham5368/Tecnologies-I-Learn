@@ -17,3 +17,5 @@ React Native is a popular choice for cross-platform application development, but
 [Ionic Official Website](https://ionicframework.com/)
 
 [Xamarin Official Website](https://dotnet.microsoft.com/en-us/apps/xamarin)
+
+![Alt text](https://static-assets.codecademy.com/Courses/Learn-React-Native/1-intro-to-react-native/two-threads-v1.svg)
