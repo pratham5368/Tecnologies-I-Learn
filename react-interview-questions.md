@@ -123,4 +123,37 @@ The properties from props object can be accessed directly using destructing feat
       );
     };
 ```
-## 6. 
+## 6. How to bind methods or event handlers in JSX callbacks?
+There are 3 possible ways to achieve this in class components:
+
+- Binding in Constructor: In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers defined as class methods. Normally we bind them in constructor.
+```
+class User extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    console.log("SingOut triggered");
+  }
+  render() {
+    return <button onClick={this.handleClick}>SingOut</button>;
+  }
+}
+```
+- Public class fields syntax: If you don't like to use bind approach then public class fields syntax can be used to correctly bind callbacks. The Create React App eanables this syntax by default.
+```
+handleClick = () => {
+  console.log("SingOut triggered", this);
+};
+<button onClick={this.handleClick}>SingOut</button>
+```
+- Arrow functions in callbacks: It is possible to use arrow functions directly in the callbacks.
+```
+handleClick() {
+    console.log('SingOut triggered');
+}
+render() {
+    return <button onClick={() => this.handleClick()}>SignOut</button>;
+}
+```
