@@ -53,6 +53,22 @@ var vm = new Vue({
   // options
 })
 ```
-- /*have to write above 11
+- What are the array detection non-mutation methods?
+The methods which do not mutate the original array but always return a new array are called non-mutation methods.
 
+Below are the list of non-mutation methods,
+
+filter()
+
+concat()
+
+slice()
+
+For example, lets take a todo list where it replaces the old array with new one based on status filter,
+```
+vm.todos = vm.todos.filter(function (todo) {
+  return todo.status.match(/Completed/)
+})
+```
+## /*14 
  
