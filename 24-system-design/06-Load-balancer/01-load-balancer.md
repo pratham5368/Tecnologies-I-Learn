@@ -26,3 +26,20 @@ Load balancers can be implemented with hardware (expensive) or with software suc
 - Introducing a reverse proxy results in increased complexity.
 - A single reverse proxy is a single point of failure, configuring multiple reverse proxies (ie a failover) further increases complexity.
 
+## Load Balancing Algorithms
+A load balancer is a software or hardware device that keeps any one server from becoming overloaded. A load balancing algorithm is the logic that a load balancer uses to distribute network traffic between servers (an algorithm is a set of predefined rules).
+
+There are two primary approaches to load balancing. Dynamic load balancing uses algorithms that take into account the current state of each server and distribute traffic accordingly. Static load balancing distributes traffic without making these adjustments. Some static algorithms send an equal amount of traffic to each server in a group, either in a specified order or at random.
+## Load Balancing Algorithms
+A load balancer is a software or hardware device that keeps any one server from becoming overloaded. A load balancing algorithm is the logic that a load balancer uses to distribute network traffic between servers (an algorithm is a set of predefined rules).
+
+There are two primary approaches to load balancing. Dynamic load balancing uses algorithms that take into account the current state of each server and distribute traffic accordingly. Static load balancing distributes traffic without making these adjustments. Some static algorithms send an equal amount of traffic to each server in a group, either in a specified order or at random.
+
+## Horizontal Scaling
+Load balancers can also help with horizontal scaling, improving performance and availability. Scaling out using commodity machines is more cost efficient and results in higher availability than scaling up a single server on more expensive hardware, called Vertical Scaling. It is also easier to hire for talent working on commodity hardware than it is for specialized enterprise systems.
+
+### Disadvantages of horizontal scaling
+- Scaling horizontally introduces complexity and involves cloning servers
+    - Servers should be stateless: they should not contain any user-related data like sessions or profile pictures
+    - Sessions can be stored in a centralized data store such as a database (SQL, NoSQL) or a persistent cache (Redis, Memcached)
+- Downstream servers such as caches and databases need to handle more simultaneous connections as upstream servers scale out.
