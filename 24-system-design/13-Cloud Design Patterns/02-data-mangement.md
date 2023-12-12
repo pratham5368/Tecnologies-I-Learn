@@ -1,0 +1,15 @@
+## Data Management
+Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.
+### Cache Aside
+Load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+
+### CQRS
+CQRS stands for Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
+### Event Sourcing
+Instead of storing just the current state of the data in a domain, use an append-only store to record the full series of actions taken on that data. The store acts as the system of record and can be used to materialize the domain objects. This can simplify tasks in complex domains, by avoiding the need to synchronize the data model and the business domain, while improving performance, scalability, and responsiveness. It can also provide consistency for transactional data, and maintain full audit trails and history that can enable compensating actions.
+### Materialized View
+Generate prepopulated views over the data in one or more data stores when the data isn’t ideally formatted for required query operations. This can help support efficient querying and data extraction, and improve application performance.
+### Sharding
+Sharding is a technique used to horizontally partition a large data set across multiple servers, in order to improve the performance, scalability, and availability of a system. This is done by breaking the data set into smaller chunks, called shards, and distributing the shards across multiple servers. Each shard is self-contained and can be managed and scaled independently of the other shards. Sharding can be used in scenarios like scalability, availability, and geo-distribution. Sharding can be implemented using several different algorithms such as range-based sharding, hash-based sharding, and directory-based sharding.
+### Valet Key
+Use a token that provides clients with restricted direct access to a specific resource, in order to offload data transfer from the application. This is particularly useful in applications that use cloud-hosted storage systems or queues, and can minimize cost and maximize scalability and performance.
