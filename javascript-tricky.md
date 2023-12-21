@@ -89,3 +89,46 @@ Data visualization tools for the web.
 - [recharts](https://github.com/recharts/recharts) - Redefined chart library built with React and D3.
 
 - [Frappe Charts](https://frappe.io/charts) - GitHub-inspired simple and modern SVG charts for the web with zero dependencies.
+## API
+- [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
+- [SWR](https://github.com/vercel/swr) - React Hooks library for remote data fetching.
+- [React Query](https://github.com/TanStack/query) - Hooks for fetching, caching and updating asynchronous data in React.
+## Loading Status
+Libraries for indicate load status.
+
+- [SpinKit](https://github.com/tobiasahlin/SpinKit) - A collection of loading indicators animated with CSS.
+## Validation
+
+- [validator.js](https://github.com/validatorjs/validator.js) - String validation and sanitization.
+
+- [FormValidation](https://formvalidation.io/) - The best jQuery plugin to validate form fields. Formerly BootstrapValidator.
+is.js - Check types, regexps, presence, time and more.
+FieldVal - multipurpose validation library. Supports both sync and async validation.
+Funval - Data validation using functions interfaces (support TypeScript).
+vest - 🦺 Declarative form validation framework inspired by unit testing.
+
+## Tours And Guides
+- [intro.js](https://github.com/usablica/intro.js) - A better way for new feature introduction and step-by-step users guide for your website and project.
+- [shepherd](https://github.com/shepherd-pro/shepherd) - Guide your users through a tour of your app.
+- [driverjs](https://github.com/kamranahmedse/driver.js)- light-weight, vanilla JavaScript engine to drive the user's focus across the page
+
+## Sliders
+- [Swiper](https://github.com/nolimits4web/Swiper) - Mobile touch slider and framework with hardware accelerated transitions.
+
+- [reveal.js](https://revealjs.com/#/5/0/2) - A framework for easily creating beautiful presentations using HTML.
+- [impress.js](https://github.com/impress/impress.js) - It's a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.
+- [bespoke.js](https://github.com/bespokejs/bespoke) - DIY Presentation Micro-Framework
+- [Glide.js](https://github.com/glidejs/glide) - Responsive and touch-friendly jQuery slider. It's simple, lightweight and fast.
+- [Embla Carousel](https://github.com/davidjerleke/embla-carousel) - An extensible low level carousel for the web, written in TypeScript.
+
+## Scroll
+
+- [locomotive-scroll](https://github.com/locomotivemtl/locomotive-scroll) - Detects the elements in viewport and smooth scrolling with parallax.
+## Animation 
+- [GSAP](https://github.com/greensock/GSAP)-best thing to learn
+- [Animejs](https://animejs.com/)- A JavaScript animation engine.
+- [particle.js](https://github.com/VincentGarreau/particles.js)
+## Generators
+- [Gatsby.js](https://github.com/gatsbyjs/gatsby) - React-based static site generator.
+- [Gridsome](https://github.com/gridsome/gridsome) - Vue-powered static site generator.
+- [Next.js](https://github.com/vercel/next.js) - React powered static site generator, and they say "All the tools you need to make the Web. Faster." 
