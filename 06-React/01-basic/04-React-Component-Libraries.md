@@ -1,0 +1,3 @@
+- [material-ui](https://mui.com/core/) - Ready-to-use foundational React components
+- [ant-design](https://ant.design/) - An enterprise-class UI design language and React UI library
+- [shadcn-ui](https://ui.shadcn.com/) - Beautifully designed components built using Radix UI and Tailwind CSS
