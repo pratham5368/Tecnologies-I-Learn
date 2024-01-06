@@ -809,7 +809,7 @@ Template strings will also work:
 <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
 ```
 ## 38. How to use React label element?
-If you try to render a <label> element bound to a text input using the standard for attribute, then it produces HTML missing that attribute and prints a warning to the console.
+If you try to render a ```<label>``` element bound to a text input using the standard for attribute, then it produces HTML missing that attribute and prints a warning to the console.
 ```
 <label for={'user'}>{'User'}</label>
 <input type={'text'} id={'user'} />

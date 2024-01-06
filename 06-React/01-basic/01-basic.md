@@ -177,8 +177,6 @@ You can find a list of available templates by searching for
 ```
 "cra-template-*" on npm.
 ```
-
-
 ## Creating a TypeScript app
 You can start a new TypeScript app using templates. To use our provided TypeScript template, append --template typescript to 
 the creation command.
@@ -186,8 +184,6 @@ the creation command.
 npx create-react-app my-app --template typescript
 ```
 If you already have a project and would like to add TypeScript, see our Adding TypeScript documentation.
-
-
 
 ## Selecting a package manager
 When you create a new app, the CLI will use npm or Yarn to install dependencies, depending on which tool you use to run create-react-app.
