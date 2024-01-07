@@ -35,3 +35,5 @@ The section on CLI Service covers its detailed usage.
 CLI Plugins are npm packages that provide optional features to your Vue CLI projects, such as Babel/TypeScript transpilation, ESLint integration, unit testing, and end-to-end testing. It's easy to spot a Vue CLI plugin as their names start with either @vue/cli-plugin- (for built-in plugins) or vue-cli-plugin- (for community plugins).
 
 When you run the vue-cli-service binary inside your project, it automatically resolves and loads all CLI Plugins listed in your project's package.json.
+
+[more](https://cli.vuejs.org/guide/)
