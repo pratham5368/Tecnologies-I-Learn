@@ -1114,6 +1114,8 @@ const distinctArr = [...set];
 ```
 ## 67.  Design a flat function which flattens an array to any depth
 Flat function can be used to flatten the array by recursive call
+
+```
 function flat(arr) {
   const flatArr = [];
   arr.forEach((value) => {
@@ -1125,7 +1127,7 @@ function flat(arr) {
   });
   return flatArr;
 }
-
+```
 ## 68. Create a function named "average" which can calculate the average of an array and should be available to be called from any Array object.
 The function added to Array prototype are accessible to all the objects of Array
 ```
@@ -1436,4 +1438,92 @@ console.log(typeof null);         // object
 console.log(typeof new RegExp()); // object
 console.log(typeof new Date());   // object
 ```
-## 79. 
+## 79. Is a technique for converting function calls with N arguments into chains of N function calls with a single argument for each function call?
+
+### Currying always returns another function with only one argument until all of the arguments have been applied. So, we just keep calling the returned function until we’ve exhausted all the arguments and the final value gets returned.
+
+Example
+
+```js
+const add = (x, y) => x + y
+add(2, 3) // => 5
+```
+
+And now, below is the same function in curried form.
+
+```js
+const add = x => y => x + y
+```
+
+Same code without arrow syntax
+
+```js
+const add = function(x) {
+  return function(y) {
+    return x + y
+  }
+}
+```
+
+Calling curried functions
+
+So in order to use our curried function, we have to call it a bit differently …
+
+add(2)(3) // returns 5
+
+Focus on return
+
+It might help to visualize it another way. We know that arrow functions work like this – let's pay particular attention to the return value.
+
+```js
+const f = someParam => returnValue
+```
+
+So our add function returns a function – we can use parentheses for added clarity.
+
+```js
+const add = x => y => x + y
+```
+
+More than two arrow functions can be sequenced, if necessary -
+
+```js
+const three = a => b => c => a + b + c
+
+const four = a => b => c => d => a + b + c + d
+
+three(1)(2)(3) // 6
+
+four(1)(2)(3)(4) // 10
+```
+
+In other words add of some number returns a function
+
+#### Further Reading
+
+[stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript/32784025](https://stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript/32784025)
+
+## 79. How is Node.js different different from Javascript?
+
+__Ans:__ Node.js uses a library called [libuv](https://github.com/libuv/libuv), to bring an asynchronous event driven model to Javscript. It piggy backs on Chrome's Javascript Engine called V8 to enable the use of Javascript's call stack.
+![](https://github.com/rohan-paul/Awesome-JavaScript-Interviews/raw/master/Node-Express/assets/2020-10-03-16-19-59.png)
+
+What makes Node.js special is the different set of APIs. In browsers, you have a variety of DOM/Web APIs exposed that help you interact with UI and allow you to access the hardware to a limited extent. To compare, Node.js comes with many APIs suitable for backend development, e.g. the support for file systems, http requests, streams, child processes, etc. Browsers do offer some basic support for file systems or http requests, but those are usually limited due to security concerns.
+
+Node.js is a good choice for applications that have to
+
+ - **process a high volume of short messages requiring low latency. Such systems are called real-time applications (RTAs)** - Thanks to its specifications, Node.js will be a good choice for the real-time collaborative drawing/editing-type apps, where you can watch the document being modified live by someone else (such as Trello, Dropbox Paper or Google Docs). One of the most popular uses of RTAs are **live-chat and instant-messaging apps**.
+
+ - **Video conference app that will work with specific hardware or VoIP**.
+
+ - **nline gaming apps or e-commerce transaction software, where online data is of much importance**
+
+- **Noe is quite a natural fit for exposing the data from object DBs (e.g. MongoDB)**. JSON stored data allow Node.js to function without the impedance mismatch and data conversion.
+
+Node.js is very efficient with real-time applications: it facilitates handling multiple client requests, enables sharing and reusing packages of library code, and the data sync between the client and server happens very fast.
+
+## 80. When Node.js should not be used?
+
+- When have lot of synchronous code that needs to be run. Applications which require  number crunching or data analysis should not use Node.js. For Ex. Matrix Multiplication, Summation, Aggregation of large datasets. In such cases, applications which allow Multi Threading out of the box like Python, Java should be used.
+
+- **CPU-heavy jobs** - Node.js is based on an event-driven, non-blocking I/O model, and uses only a single CPU core. CPU-heavy operations will just block incoming requests, rendering the biggest advantage of Node.js useless.
