@@ -1,5 +1,12 @@
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+/*
+Well, the forEach() method doesn’t actually return anything (undefined). It simply calls a provided function on each
+element in your array. This callback is allowed to mutate the calling array.
+Meanwhile, the map() method will also call a provided function on every element in the array. The difference is that 
+map() utilizes return values and actually returns a new Array of the same size.
+*/
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const doubledNumbers = numbers.map((number) => number * 2);
 console.log(doubledNumbers);
 

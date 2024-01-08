@@ -1,5 +1,15 @@
 ## What is an IIFE, what is the use of it?
 ↑ An IIFE or Immediately Invoked Function Expression is a function that is gonna get invoked or executed after its creation or declaration. The syntax for creating IIFE is that we wrap the function (){} inside a parentheses () or the Grouping Operator to treat the function as an expression and after that we invoke it with another parentheses (). So an IIFE looks like this (function(){})().
+
+- Immediately-invoked function expressions.
+
+- A design pattern used by most popular libraries to place all library code inside of a local scope.
+
+- No global property is created for the function (anonymous function expression).
+
+- All of the properties created inside of the function expression are scoped locally.
+
+- Encapsulation, preserve the global namespace as any variables declared within the function body will be local to the closure but will still live throughout runtime.
 ```
 (function () {
 
@@ -107,3 +117,17 @@ for (var i = 0, len = li.length; i < len; i++) {
 }
 ```
 This solution works because of the reason that the IIFE creates a new scope for every iteration and we capture the value of i and pass it into the currentIndex parameter so the value of currentIndex is different for every iteration when we invoke the IIFE.
+
+## 10ways 
+```js
+~function () {console.log("Hi I'm IIFE 1")}();
+!function () {console.log("Hi I'm IIFE 2")}();
++function () {console.log("Hi I'm IIFE 3")}();
+-function () {console.log("Hi I'm IIFE 4")}();
+(function () {console.log("Hi I'm IIFE 5")}())
+var i = function(){console.log("Hi I'm IIFE 6")}();
+true && function(){console.log("Hi I'm IIFE 7")}();
+0, function(){console.log("Hi I'm IIFE 8")}();
+new function(){console.log("Hi I'm IIFE 9")};
+new function(){console.log("Hi I'm IIFE 10")}();
+```
