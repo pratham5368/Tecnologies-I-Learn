@@ -14,6 +14,75 @@ Apart from the advantages, there are few limitations of React too,
 - Integrating React into a traditional MVC framework requires some additional configuration.
 - The code complexity increases with inline templating and JSX.
 - Too many smaller components leading to over engineering or boilerplate.
+### React lifecycle cheatsheet
+
+React’s life cycle events can be broken into two categories:
+
+1. When a component gets mounted to the DOM or unmounted from it.
+
+2. When a component receives new data.
+
+For the first category, the component may need to perform some/all of the following tasks during that time in the life cycle:
+
+* Default props - if props aren’t given to a component, they default to the specified Component.defaultProps object.
+
+* Initial State - initial state is retrieved from within the constructor of the component
+
+* Make an Ajax request to fetch some data - common use case, the request can be made in the body of componentDidMount method
+
+* Set up or remove any listeners or web-sockets (like a firebase ref listener) - start listener within componentDidMount and stop listener in componentWillUnmount
+
+
+### Mounting - After preparing with basic needs, state and props, our React Component is ready to mount in the browser DOM. This phase gives hook methods for before and after mounting of components.
+
+- constructor()
+- componentWillMount()
+- render()
+- componentDidMount()
+
+### Updating - This phase starts when the react component has taken birth on the browser and grows by receiving new updates. The component can be updated by two ways, sending new props or updating the state.
+
+- componentWillReceiveProps()
+- shouldComponentUpdate()
+- componentWillUpdate()
+- render()
+- componentDidUpdate()
+
+### Unmounting
+
+componentWillUnmount()
+
+
+Now coming to the life cycle events that triggered when the component receives new data from its parent component.
+
+* `componentWillReceiveProps` - for times when you want to execute some code whenever your component receives props
+
+* `shouldComponentUpdate` - allows us to add another condition which should return true for react to re-render that component (and obviously its children)
+
+
+| Method | Side effects<sup>1</sup> | State updates<sup>2</sup> | Example uses |
+| :--- | :---: | :---: | :--- |
+| <big>**Mounting**</big> |
+| `componentWillMount` |  | ✓ | Constructor equivalent for `createClass ` |
+| `render` |  |  | Create and return element(s) |
+| `componentDidMount` | ✓ | ✓ | DOM manipulations, network requests, etc. |
+| <big>**Updating**</big> |
+| `componentWillReceiveProps` |  | ✓ | Update `state` based on changed `props` |
+| `shouldComponentUpdate` |  |  | Compare inputs and determine if render needed |
+| `componentWillUpdate` |  |  | Set/reset things (eg cached values) before next render |
+| `render` |  |  | Create and return element(s) |
+| `componentDidUpdate` | ✓ | ✓ | DOM manipulations, network requests, etc. |
+| <big>**Unmounting**</big> |
+| `componentWillUnmount` | ✓ |  | DOM manipulations, network requests, etc. |
+
+[React Component Life-Cycle official Doc](https://facebook.github.io/react/docs/react-component.html).
+
+1. "Side effects" refer to modifying variables outside of the instance, async operations, etc.
+2. "State updates" refer to the current instance only (eg `this.setState`).
+
+![react component's life cycle events](https://camo.githubusercontent.com/ee0622422b82b802a76684714547397eb243508e3747aaa3cbaacf115accbe78/687474703a2f2f692e696d6775722e636f6d2f334c6b467447642e706e67)
+
+<img src="https://github.com/rohan-paul/Awesome-JavaScript-Interviews/raw/master/React/Component-Life-Cycle/component-life-cycle.jpeg">
 
 ## 2. What is JSX?
 JSX stands for JavaScript XML and it is an XML-like syntax extension to ECMAScript. Basically it just provides the syntactic sugar for the React.createElement(type, props, ...children) function, giving us expressiveness of JavaScript along with HTML like template syntax.
@@ -130,7 +199,7 @@ This reactProp (or whatever you came up with) attribute name then becomes a prop
 props.reactProp
 ```
 For example, the usage of props in function component looks like below:
-```
+```jsx
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -153,7 +222,7 @@ const ParentComponent = () => {
 };
 ```
 The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
-```
+```jsx
   const ChildComponent = ({name, age}) => {
       return (
         <div>
@@ -167,7 +236,7 @@ The properties from props object can be accessed directly using destructing feat
 There are 3 possible ways to achieve this in class components:
 
 - Binding in Constructor: In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers defined as class methods. Normally we bind them in constructor.
-```
+```jsx
 class User extends Component {
   constructor(props) {
     super(props);
