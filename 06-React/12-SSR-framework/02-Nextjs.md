@@ -6,3 +6,5 @@ Next.js is an open-source development framework built on top of Node.js enabling
 [mastering nextjs](https://masteringnextjs.com/)
 
 [hand book](https://www.freecodecamp.org/news/the-next-js-handbook/)
+
+[learn](https://nextjs.org/learn)
