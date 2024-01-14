@@ -26,4 +26,13 @@ All the advance things I have learned about programming
 24. [system Design](./24-system-design/)
 25. [design system](./25-design-system/)
 26. [kubernetes](./26-kubernetes/)
+27. [Data Structure Queations](./27-few-DataStructuresQuestions/)
+28. [Interview Questions](./28-extra-topics/)
+29. [React three fiber](./29-react-fiber/)
+30. [Vue](./30-Vuejs/)
+31. [pytorch](./31-pytorch/)
+
+
+
+disclaimer:- these are my notes used from alot of people ideas and courses so there maybe a huge amount of samethings repeating.I have learned from youtube,EDX,Quora,many blogs, many github accounts and 1000s of website and these are the notes of that all.
 
