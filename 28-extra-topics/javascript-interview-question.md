@@ -227,7 +227,7 @@ function bar() {
 /* Some code */
 };
 ```
-## 15. The main difference is the function foo is defined at run-time whereas function bar is defined at parse time. To understand this in better way, let's take a look at the code below:
+The main difference is the function foo is defined at run-time whereas function bar is defined at parse time. To understand this in better way, let's take a look at the code below:
 
 Run-Time function declaration 
 ```
