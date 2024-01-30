@@ -210,9 +210,6 @@
 
     In class components, the components extending _`React.PureComponent`_ instead of  _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method. 
 
-    **Note:** `React.memo()` is a higher-order component.
-
-    **[⬆ Back to Top](#table-of-contents)**
 
 8.  ### What is state in React?
 
@@ -1595,6 +1592,7 @@
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
+    ### 
 
 68. ### Why we need to be careful when spreading props on DOM elements?
 
