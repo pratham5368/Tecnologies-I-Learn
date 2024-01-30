@@ -741,7 +741,7 @@ class Obj {
 const object = new Obj("key", "value");
 ```
 ## 48. What is currying in JavaScript?
-Currying is an advanced technique to transform a function of arguments n, to n functions of one or fewer arguments.
+Currying is an advanced technique to transform a function of arguments n, to n functions of one or fewer arguments.Currying is when you break down a function that takes multiple arguments into a series of functions that each take only one argument
 
 Example of a curried function:
 ```
