@@ -1,0 +1,2 @@
+- [next authentication](https://next-auth.js.org/)
+- [clerk](https://clerk.com/docs)
