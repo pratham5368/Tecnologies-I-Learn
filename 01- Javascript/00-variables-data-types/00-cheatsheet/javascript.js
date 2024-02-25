@@ -1,3 +1,5 @@
+// High level,Single Threaded,Garbage Collected,Dyanmic typed ,interpredted,just in time complied, prototype based, single threaded, event driven, asynchronous, non-blocking.
+
 // Global object: properties
 Array.length                                         // Reflects the number of elements in an array
 
