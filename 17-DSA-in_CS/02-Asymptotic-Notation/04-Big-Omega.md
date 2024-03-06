@@ -1,0 +1,2 @@
+## Big Omega Notation
+Big Omega notation is used to describe the lower bound of a function. It is the opposite of Big O notation. While Big O is used to describe the worst case scenario of an algorithm, Big Omega is used to describe the best case scenario of an algorithm.
